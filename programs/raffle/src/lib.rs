@@ -15,7 +15,19 @@ declare_id!("Aj79PCKC7FAiGoKTCw6AYdhirh2YHHkoAawYuVKshuDi");
 pub mod raffle {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        crate::instructions::initialize::handle_initialize(ctx)
+    pub fn create(ctx: Context<Create>, id: u64, start: i64, end: i64, amount: u64) -> Result<()> {
+        crate::instructions::create::handle_create(ctx, id, start, end, amount)
+    }
+
+    pub fn enter(ctx: Context<Enter>, id: u64) -> Result<()> {
+        crate::instructions::enter::handle_enter(ctx, id)
+    }
+
+    pub fn draw(ctx: Context<Draw>, id: u64) -> Result<()> {
+        crate::instructions::draw::handle_draw(ctx, id)
+    }
+
+    pub fn claim(ctx: Context<Claim>, id: u64) -> Result<()> {
+        crate::instructions::claim::handle_claim(ctx, id)
     }
 }
