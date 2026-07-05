@@ -79,7 +79,7 @@ pub fn handle_claim(ctx: Context<Claim>, id: u64) -> Result<()> {
     ];
     token_interface::transfer_checked(
         CpiContext::new_with_signer(
-            ctx.accounts.token_program.key(),
+            ctx.accounts.token_program.to_account_info(),
             token_interface::TransferChecked {
                 from: ctx.accounts.raffle_token_ata.to_account_info(),
                 mint: ctx.accounts.mint.to_account_info(),
@@ -92,7 +92,7 @@ pub fn handle_claim(ctx: Context<Claim>, id: u64) -> Result<()> {
         ctx.accounts.mint.decimals,
     )?;
     token_interface::close_account(CpiContext::new_with_signer(
-        ctx.accounts.token_program.key(),
+        ctx.accounts.token_program.to_account_info(),
         token_interface::CloseAccount {
             account: ctx.accounts.raffle_token_ata.to_account_info(),
             destination: ctx.accounts.creator.to_account_info(),

@@ -23,8 +23,12 @@ pub mod raffle {
         crate::instructions::enter::handle_enter(ctx, id)
     }
 
-    pub fn draw(ctx: Context<Draw>, id: u64) -> Result<()> {
-        crate::instructions::draw::handle_draw(ctx, id)
+    pub fn request_randomness(ctx: Context<RequestRandomness>, id: u64) -> Result<()> {
+        crate::instructions::request_randonmess::handle_request_randomness(ctx, id)
+    }
+
+    pub fn reveal(ctx: Context<Reveal>, id: u64) -> Result<()> {
+        crate::instructions::reveal::handle_reveal(ctx, id)
     }
 
     pub fn claim(ctx: Context<Claim>, id: u64) -> Result<()> {

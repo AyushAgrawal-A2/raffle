@@ -10,8 +10,16 @@ pub enum RaffleError {
     RaffleEnded,
     #[msg("No entrant")]
     NoEntrant,
-    #[msg("Raffle already drawn")]
-    RaffleAlreadyDrawn,
+    #[msg("Randomness already requested")]
+    RandomnessAlreadyRequested,
+    #[msg("Invalid randomness account")]
+    InvalidRandomnessAccount,
+    #[msg("Wrong randomness account")]
+    WrongRandomnessAccount,
+    #[msg("Randomness expired")]
+    RandomnessExpired,
+    #[msg("Randomness not resolved")]
+    RandomnessNotResolved,
     #[msg("Raffle not drawn")]
     RaffleNotDrawn,
     #[msg("Invalid winner index")]
